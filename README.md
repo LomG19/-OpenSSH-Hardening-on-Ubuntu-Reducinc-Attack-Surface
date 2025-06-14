@@ -52,7 +52,8 @@ Harden an Ubuntu server's SSH service against:
         bash
         ```
         sudo apt install  libpamp-google-authenticator
-        ```
+  
+    ```
 - Initialize the authentication app for a user
         bash
 ```
