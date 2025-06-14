@@ -29,7 +29,7 @@ Harden an Ubuntu server's SSH service against:
     zsh
     ```
     ssh-keygen
-    ,,,
+    ```
     
 ### 4. Copying the Public Key to Server 
 - The public key will be copied to the Ubuntu server (Virtual Machine).
@@ -55,8 +55,10 @@ Harden an Ubuntu server's SSH service against:
         ```
 - Initialize the authentication app for a user
         bash
-        ```google-authenticator
-        ```
+```
+              google-authenticator
+
+  ```
 ## ⚠️ Troubleshooting  
     - Problem: SSH service fails after config changes.
 
