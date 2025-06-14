@@ -41,11 +41,11 @@ Harden an Ubuntu server's SSH service against:
 - Disabling Password authentication for enhanced security and help prevent brute force attacks. This is done by modifying the SSH daemon's file.
     bash
     ```
-    sudo nano /etc/ssh/sshd_config
-    
-    ```diff
+  sudo nano /etc/ssh/sshd_config
+
+    diff
      PasswordAuthentication no <- initially set to yes it's changed to NO.
-    
+    ```
 ### 6. Setup Multi-Factor Authentication (MFA)
 - Adding MFA provides an additional layer of security.
         Install google PAM(Pluggable Authentication Module)
