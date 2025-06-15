@@ -50,7 +50,7 @@ Harden an Ubuntu server's SSH service against:
 - Adding MFA provides an additional layer of security.
         Install google PAM(Pluggable Authentication Module)
         bash
-        ```
+   ```
         sudo apt install  libpamp-google-authenticator
    ```
 - Initialize the authentication app for a user
