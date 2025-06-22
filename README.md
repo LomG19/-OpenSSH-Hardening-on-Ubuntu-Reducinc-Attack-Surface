@@ -65,7 +65,7 @@ Harden an Ubuntu server's SSH service against:
     
      PasswordAuthentication no
     ```
-    ### 4. Disable root login 
+    ### 5. Disable root login 
 - Every linux system has a root user; disabling it forces the attacker to guess both a valid non-root username and correct credentials.
     
     ```
@@ -78,7 +78,7 @@ Harden an Ubuntu server's SSH service against:
     
      PermitRootLogin no
     ```
-    ### 5. Set the maximum authorized login tries to 3
+    ### 6. Set the maximum authorized login tries to 3
 - Brute-force scripts rely on rapid retries, and this will slow it down, as for each 3 failed attempts, the session will be closed, forcing the attacker to reconnect after every 3 attempts.
     
     ```
@@ -91,7 +91,7 @@ Harden an Ubuntu server's SSH service against:
     
      MaxAuthTries 3
     ```
-    ### 6. Changing the SSH default port
+    ### 7. Changing the SSH default port
 - This can help prevent against automated and unsophisticated attacks that usually only target the 22 port, ensuring cleaner logs.
     
     ```
@@ -104,7 +104,7 @@ Harden an Ubuntu server's SSH service against:
     
      Port 24214
     ```
-### 7. Set up Multi-Factor Authentication (MFA)
+### 8. Set up Multi-Factor Authentication (MFA)
 - Adding MFA provides an additional layer of security.
         Install Google PAM(Pluggable Authentication Module)
         
