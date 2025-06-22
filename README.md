@@ -5,7 +5,15 @@
 Harden an Ubuntu server's SSH service against:  
 - Brute force attacks  
 - Credential theft  
-- Unauthorized access  
+- Unauthorized access
+
+  ## Tools & Environment
+
+- Ubuntu 24.04 LTS (Virtual Machine)
+- OpenSSH Server
+- Google Authenticator (PAM module)
+- SSH client (on physical host)
+- VMWare Fusion
 
 ##  Key Security Features  
 - Disabled password authentication  
@@ -13,8 +21,8 @@ Harden an Ubuntu server's SSH service against:
 - Added Google Authenticator MFA
 - Change default SSH port from 22 to 24214
 - Updated UFW firewall rules
-- Set the maximum authorized login tries to 3 within 10s
--   
+- Set the maximum authorized login tries to 3 within 10 seconds
+- Disabled root login
 - Fixed `sshd_config` syntax errors  
 
 ## Step-by-Step Guide  
@@ -54,7 +62,46 @@ Harden an Ubuntu server's SSH service against:
     
      PasswordAuthentication no
     ```
-### 5. Set up Multi-Factor Authentication (MFA)
+    ### 4. Disable root login 
+- Every linux system has a root user; disabling it forces the attacker to guess both a valid non-root username and correct credentials.
+    
+    ```
+      sudo nano /etc/ssh/sshd_config
+    ** Before **
+    
+      PermitRootLogin yes
+    
+    ** After **
+    
+     PermitRootLogin no
+    ```
+    ### 5. Set the maximum authorized login tries to 3
+- Brute-force scripts rely on rapid retries, and this will slow it down, as for each 3 failed attempts, the session will be closed, forcing the attacker to reconnect after every 3 attempts.
+    
+    ```
+  sudo nano /etc/ssh/sshd_config
+    ** Before **
+    
+      MaxAuthTries 6
+    
+    ** After **
+    
+     MaxAuthTries 3
+    ```
+    ### 6. Changing the SSH default port
+- This can help prevent against automated and unsophisticated attacks that usually only target the 22 port, ensuring cleaner logs.
+    
+    ```
+  sudo nano /etc/ssh/sshd_config
+    ** Default Port **
+    
+      Port 22
+    
+    ** Custom Port set **
+    
+     Port 24214
+    ```
+### 7. Set up Multi-Factor Authentication (MFA)
 - Adding MFA provides an additional layer of security.
         Install Google PAM(Pluggable Authentication Module)
         
@@ -69,7 +116,7 @@ Harden an Ubuntu server's SSH service against:
   ```
 ## ⚠️ Troubleshooting  
 - Problem: SSH service fails after config changes.
-- Diagnose: sshd -t <- to check any typo in the configuration file "Invalid AuthenticationMethods list at line 132".
+- Diagnose: sshd -t <- to check  misconfiguration, revealed: "Invalid AuthenticationMethods list at line 132".
 - Issue: Duplicate password entry, missing commas.
     ```
           **  before with errors **
