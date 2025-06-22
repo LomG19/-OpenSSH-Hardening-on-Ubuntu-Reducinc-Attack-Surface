@@ -47,8 +47,11 @@ Harden an Ubuntu server's SSH service against:
     ```
   sudo nano /etc/ssh/sshd_config
     ** Before with password authentication enabled **
+    
       PasswordAuthentication yes
+    
     ** Before with password authentication enabled **
+    
      PasswordAuthentication no
     ```
 ### 5. Set up Multi-Factor Authentication (MFA)
