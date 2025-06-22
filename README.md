@@ -50,7 +50,7 @@ Harden an Ubuntu server's SSH service against:
     
       PasswordAuthentication yes
     
-    ** Before with password authentication enabled **
+    ** After with password authentication disabled **
     
      PasswordAuthentication no
     ```
