@@ -1,4 +1,4 @@
-# OpenSSH-Ubunutu-Hardening  
+# 🛡️ OpenSSH Hardening on Ubuntu – Reducing Attack Surface  
 *By Mugisha Loic *
 
 ## Objective  
