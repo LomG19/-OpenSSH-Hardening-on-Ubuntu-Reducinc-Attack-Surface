@@ -1,6 +1,9 @@
 # 🛡️ OpenSSH Hardening on Ubuntu – Reducing Attack Surface  
 *By Mugisha Loic *
 
+## Project Summary
+This project documents the process of securing OpenSSH on Ubuntu to reduce unauthorized access risk and align with cybersecurity best practices
+
 ## Objective  
 Harden an Ubuntu server's SSH service against:  
 - Brute force attacks  
